@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>h5</title>
+  <script type="text/javascript" src="../js/lib/jquery.js"></script>
+  <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+
+  <script type="text/javascript" src="../js/h5.js"></script>
+  <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+  <link rel="stylesheet" href="../css/H5.css">
+  <link rel="stylesheet" href="../css/H5ComponentBase.css">
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      font-size:12px;
+    }
+  </style>
+</head>
+<body>
+<!-- 测试内容组织功能，以及fullpage页面切换&组件切换 -->
+
+
+  <script>
+    $(function(){
+      var h5 = new H5();
+
+      h5.addPage('face')
+          .addComponent('logo',{
+            text:'logo',
+            width:400,
+            height:100,
+            css: {
+              background:'red',
+              top:200,
+              opacity:0
+            },
+            center:true,
+            animateIn:{opacity:1},
+            animateOut:{opacity:0}
+          })
+          .addComponent('slogan',{
+            text:'slogan',
+            width:400,
+            height:100,
+            css: {
+              background:'red',
+              top:350
+            },
+            center:true
+          })
+        .addPage('desc')
+          .addComponent('caption',{
+            text:'核心理念',
+            width:400,
+            height:100,
+            css: {
+              background:'green',
+              top:200
+            },
+            center:true
+          })
+        .addPage('page-3')
+          .addComponent('caption',{
+            text:'课程方向分布',
+            width:400,
+            height:100,
+            css: {
+              background:'red',
+              top:200
+            },
+            center:true
+          })
+        .loader();
+    })
+  </script>
+</body>
+</html>

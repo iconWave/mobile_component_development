@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>雷达图</title>
+  <script type="text/javascript" src="../js/lib/jquery.js"></script>
+  <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentBase.css">
+
+  <!-- 引入雷达图的资源 -->
+  <script type="text/javascript" src="../js/H5ComponentRadar.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentRadar.css">
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      background:#000;
+      font-size:12px;
+    }
+    .iphone {
+      width:340px;
+      height:540px;
+      background:#fff;
+      position:absolute;
+      left:50%;
+      top:50%;
+      margin:-270px 0 0 -170px;
+    }
+  </style>
+</head>
+<body>
+<!-- 用于开发h5componentRadar对象 （雷达图组件） -->
+  <div class="iphone">
+  </div>
+
+  <script>
+    var cfg = {
+      type : 'radar',
+      data:[
+        ['js',.4,'#ff7676'],
+        ['css3',.1],
+        ['html5',.2],
+        ['php',.05],
+        ['jquery',.35]
+      ],
+      width: 400,
+      height: 400,
+      css:{
+        top:100,
+        opacity:0
+      },
+      animateIn: {
+        top:200,
+        opacity:1
+      },
+      animateOut: {
+        top:100,
+        opacity:0
+      },
+      center:true
+    };
+
+    var h5 = new H5ComponentRadar('myName',cfg);
+    $('.iphone').append(h5);
+
+
+    var leave = true;
+    $('body').click(function(){
+      leave = !leave;
+      $('.h5_component').trigger(leave ? 'onLeave':'onLoad');
+    })
+  </script>
+</body>
+</html>
